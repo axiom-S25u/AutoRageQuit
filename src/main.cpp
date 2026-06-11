@@ -1,7 +1,5 @@
 #include <Geode/Geode.hpp>
 #include <Geode/modify/PlayLayer.hpp>
-#include <thread>
-#include <chrono>
 
 using namespace geode::prelude;
 
@@ -28,6 +26,8 @@ class $modify(PlayLayer) {
 
 		if (m_isPracticeMode) return;
 
+		if (m_isPlatformer) return;
+
 		bool enabled = Mod::get()->getSettingValue<bool>("enabled");
 		if (!enabled) return;
 
@@ -35,7 +35,7 @@ class $modify(PlayLayer) {
 		if (m_attempts <= m_fields->lastAttempts) return;
 		m_fields->lastAttempts = m_attempts;
 
-		int maxAttempts = Mod::get()->getSettingValue<int64_t>("attempts-before-quit");
+		int maxAttempts = Mod::get()->getSettingValue<int64_t>("attempts-before-quit"); // again, min 2 so it wont just kill it for no reason
 
 		// truncate to 1 decimal so 3.43 becomes 3.4
 		float percent = std::floor(getCurrentPercent() * 10.f) / 10.f; // i mean on long ass levels, this is somethin else but i mean, idk what to say no one with the mod on would play anyways
@@ -51,11 +51,11 @@ class $modify(PlayLayer) {
 		// our own counter, not the games attempts
 		if (m_fields->sameSpotCount >= maxAttempts) {
 			log::warn("died on same % {} times in a row, giving up", m_fields->sameSpotCount);
-			
-			utils::game::exit(true);
 
-			// exit(0); // boom
-			// CCDirector::sharedDirector()->end();, wouldve used this but nah
+			auto playLayer = PlayLayer::get();
+			if (playLayer) {
+				playLayer->onQuit();
+			}
 		}
 	}
 };

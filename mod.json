@@ -8,9 +8,9 @@
 	},
 	"id": "axiom.autoragequit",
 	"name": "AutoRageQuit",
-	"version": "v1.0.1",
+	"version": "v1.0.2",
 	"developer": "Axiom",
-	"description": "automatically quits when you die at the same percentage too many times",
+	"description": "automatically exits the level when you die at the same percentage too many times",
 	"tags": ["gameplay", "joke"],
 	"dependencies": {
 		"geode.node-ids": ">=v1.23.3"
@@ -26,7 +26,8 @@
 			"type": "int",
 			"default": 50,
 			"name": "Attempts Before Quit",
-			"description": "how many deaths before giving up"
+			"description": "how many deaths before giving up",
+			"min": 2
 		}
 	}
 }
