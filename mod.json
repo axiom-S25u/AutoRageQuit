@@ -27,7 +27,7 @@
 		},
 		"attempts-before-quit": {
 			"type": "int",
-			"default": 50,
+			"default": 5,
 			"name": "Attempts Before Quit",
 			"description": "how many deaths before giving up",
 			"min": 2
