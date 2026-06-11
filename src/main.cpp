@@ -26,6 +26,8 @@ class $modify(PlayLayer) {
 	void destroyPlayer(PlayerObject* player, GameObject* object) {
 		PlayLayer::destroyPlayer(player, object);
 
+		if (m_isPracticeMode) return;
+
 		bool enabled = Mod::get()->getSettingValue<bool>("enabled");
 		if (!enabled) return;
 

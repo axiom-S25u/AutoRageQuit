@@ -8,7 +8,7 @@
 	},
 	"id": "axiom.autoragequit",
 	"name": "AutoRageQuit",
-	"version": "v1.0.0",
+	"version": "v1.0.1",
 	"developer": "Axiom",
 	"description": "automatically quits when you die at the same percentage too many times",
 	"tags": ["gameplay", "joke"],
