@@ -2,4 +2,4 @@
 
 made by axiom because rage quitting is an art form
 
-exists gd at a configurable death threshold
+exits a level at a configurable death threshold
