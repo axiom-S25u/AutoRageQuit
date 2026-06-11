@@ -1,0 +1,32 @@
+{
+	"geode": "5.7.1",
+	"gd": {
+		"win": "2.2081",
+		"android": "2.2081",
+		"mac": "2.2081",
+		"ios": "2.2081"
+	},
+	"id": "axiom.autoragequit",
+	"name": "AutoRageQuit",
+	"version": "v1.0.0",
+	"developer": "Axiom",
+	"description": "automatically quits when you die at the same percentage too many times",
+	"tags": ["gameplay", "joke"],
+	"dependencies": {
+		"geode.node-ids": ">=v1.23.3"
+	},
+	"settings": {
+		"enabled": {
+			"type": "bool",
+			"default": false,
+			"name": "Enabled",
+			"description": "enable the rage quit feature"
+		},
+		"attempts-before-quit": {
+			"type": "int",
+			"default": 50,
+			"name": "Attempts Before Quit",
+			"description": "how many deaths before giving up"
+		}
+	}
+}
